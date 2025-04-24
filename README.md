@@ -1,5 +1,5 @@
 # BRDC_case
-Genomic assembly of a BRDC case study
+Bacterial genomic assembly of a BRDC case study
 
 
 ## Workflow
