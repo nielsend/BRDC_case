@@ -21,7 +21,13 @@ flye --nano-hq barcode11/BC10.fq --out-dir flye_hq/BC10 -g 1.2m --threads 40 --a
 <br>
 
 The subsequent assemblies were polished with [medaka](https://github.com/nanoporetech/medaka).
+```
+medaka_consensus -i barcode10/BC10.fq -d BC10_consensus.fasta -o BC10_medaka -t 16 --bacteria
+```
 
+<br>
+
+The medaka assemblies were polished with the [BBDUK](https://github.com/BioInfoTools/BBMap/blob/master/sh/bbduk.sh) trimmed short reads using [polypolish](https://github.com/rrwick/Polypolish/wiki/How-to-run-Polypolish).
 ```
 cd /project/mycoplasma/dnielsen/ONT_Feb2025/flye_hq/BC10_medaka
 bwa index BC10_consensus.fasta
@@ -31,11 +37,6 @@ bwa mem -t 40 -a BC10_consensus.fasta /project/mycoplasma/dnielsen/2025-01-01/24
 ~/./Polypolish/target/release/polypolish polish  BC10_consensus.fasta filtered_1.sam filtered_2.sam > BC10_polished.fasta
 rm *.amb *.ann *.bwt *.pac *.sa *.sam
 ```
-
-<br>
-
-The medaka assemblies were polished with the [BBDUK](https://github.com/BioInfoTools/BBMap/blob/master/sh/bbduk.sh) trimmed short reads.
-``` ```
 
 <br>
 
