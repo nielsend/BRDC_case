@@ -4,7 +4,10 @@ Genomic assembly of a BRDC case study
 
 ## Workflow
 ### Short read trimming
+```
+module load bbtools/39.01
 
+```
 <br>
 
 ### Long read basecalling
@@ -27,7 +30,7 @@ medaka_consensus -i barcode10/BC10.fq -d BC10_consensus.fasta -o BC10_medaka -t 
 
 <br>
 
-The medaka assemblies were polished with the [BBDUK](https://github.com/BioInfoTools/BBMap/blob/master/sh/bbduk.sh) trimmed short reads using [polypolish](https://github.com/rrwick/Polypolish/wiki/How-to-run-Polypolish).
+The medaka assemblies were polished with the [BBDUK](https://github.com/BioInfoTools/BBMap/blob/master/sh/bbduk.sh) trimmed short reads using [polypolish v. 0.6.0](https://github.com/rrwick/Polypolish/wiki/How-to-run-Polypolish).
 ```
 cd /project/mycoplasma/dnielsen/ONT_Feb2025/flye_hq/BC10_medaka
 bwa index BC10_consensus.fasta
@@ -42,9 +45,16 @@ rm *.amb *.ann *.bwt *.pac *.sa *.sam
 
 ### Analysis
 Assemblies were annotated with NCBI's [pgap](https://github.com/ncbi/pgap/tree/master/bacterial_annot). 
-
+```
+module load pgap
+pgap.py -g BC10_polished.fasta -s 'Mycoplasmopsis bovis' -n -D apptainer --no-self-update -o mbovOut -m 30g
+```
 <br>
 
 M. haemolytica genes were analyzed using a custom blast database using [ABRicate](https://github.com/boasvdp/extract_genes_ABRicate). 
-
+```
+module load blast+
+module load perl
+~/abricate/bin/abricate --db Mh /project/mycoplasma/dnielsen/Mh_03.20.25_NoAtyp_MAGs_MIPs/ncbi_dataset/data/GCAassemblies/fna/*.fna > Mhoutput.tsv
+```
 See Mh.txt for the database.
