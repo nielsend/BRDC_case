@@ -21,7 +21,7 @@ The subsequent assemblies were polished with [medaka](https://github.com/nanopor
 
 <br>
 
-The medaka assemblies were polished with the BBDUK trimmed short reads.
+The medaka assemblies were polished with the [BBDUK](https://github.com/BioInfoTools/BBMap/blob/master/sh/bbduk.sh) trimmed short reads.
 ``` ```
 
 <br>
