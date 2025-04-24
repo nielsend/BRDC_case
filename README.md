@@ -13,7 +13,11 @@ Genomic assembly of a BRDC case study
 
 ### Assembly & Polishing
 Long reads were assembled with [flye v. 2.9.4](https://github.com/mikolmogorov/Flye/blob/flye/docs/USAGE.md).
-``` ```
+```
+module load flye
+flye --nano-hq barcode11/BC10.fq --out-dir flye_hq/BC10 -g 1.2m --threads 40 --asm-coverage 50
+```
+
 <br>
 
 The subsequent assemblies were polished with [medaka](https://github.com/nanoporetech/medaka).
