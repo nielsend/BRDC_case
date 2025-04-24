@@ -51,6 +51,21 @@ pgap.py -g BC10_polished.fasta -s 'Mycoplasmopsis bovis' -n -D apptainer --no-se
 ```
 <br>
 
+### Comparison to NCBI genomes
+NCBI assemblies reannotated with prokka
+```
+module load perl
+module load barrnap
+module load blast+
+module load prokka
+
+#for M. bovis
+for i in *.fna; do prokka $i --outdir ${i/_genomic.fna/} --prefix ${i/_genomic.fna/} --gcode 4 --cpus 40; done
+
+#for M. haemolytica
+for i in *.fna; do prokka $i --outdir ${i/_genomic.fna/} --prefix ${i/_genomic.fna/} --cpus 40; done
+```
+
 M. haemolytica genes were analyzed using a custom blast database using [ABRicate](https://github.com/boasvdp/extract_genes_ABRicate). 
 ```
 module load blast+
