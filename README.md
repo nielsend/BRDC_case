@@ -52,7 +52,7 @@ pgap.py -g BC10_polished.fasta -s 'Mycoplasmopsis bovis' -n -D apptainer --no-se
 <br>
 
 ### Comparison to NCBI genomes
-NCBI assemblies reannotated with prokka
+1. NCBI assemblies reannotated with [prokka](https://github.com/tseemann/prokka)
 ```
 module load perl
 module load barrnap
@@ -65,6 +65,24 @@ for i in *.fna; do prokka $i --outdir ${i/_genomic.fna/} --prefix ${i/_genomic.f
 #for M. haemolytica
 for i in *.fna; do prokka $i --outdir ${i/_genomic.fna/} --prefix ${i/_genomic.fna/} --cpus 40; done
 ```
+
+2. [Roary](https://sanger-pathogens.github.io/Roary/) run on .gff prokka output
+   ```
+   module load roary
+   
+   #for M. bovis
+   roary -t 4 -p 40 -e *.gff
+   
+   #for M. haemolytica
+   roary -p 40 -e *.gff
+   ```
+
+3. [raxml](https://github.com/stamatak/standard-RAxML) run on Roary output
+   ```
+   module load raxml
+   raxmlHPC-PTHREADS-AVX -m GTRGAMMA -f a -n roary_Raxml_core -s ./core_gene_alignment.aln -T 40 -x 7 -N autoMRE -p 7
+   ```
+
 
 M. haemolytica genes were analyzed using a custom blast database using [ABRicate](https://github.com/boasvdp/extract_genes_ABRicate). 
 ```
