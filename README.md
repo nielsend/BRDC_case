@@ -88,6 +88,6 @@ M. haemolytica genes were analyzed using a custom blast database using [ABRicate
 ```
 module load blast+
 module load perl
-~/abricate/bin/abricate --db Mh /project/mycoplasma/dnielsen/Mh_03.20.25_NoAtyp_MAGs_MIPs/ncbi_dataset/data/GCAassemblies/fna/*.fna > Mhoutput.tsv
+~/./abricate/bin/abricate --db Mh /project/mycoplasma/dnielsen/Mh_03.20.25_NoAtyp_MAGs_MIPs/ncbi_dataset/data/GCAassemblies/fna/*.fna > Mhoutput.tsv
 ```
 See Mh.txt for the database.
