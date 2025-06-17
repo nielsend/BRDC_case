@@ -6,12 +6,12 @@ Bacterial genomic assembly of a BRDC case study
 ### Short read trimming
 ```
 module load bbtools/39.01
-
+bbduk.sh in1=X_R1_001.fastq.gz in2=X_R2_001.fastq.gz out1=X_R1_050725_2.fq out2=X_R2_050725_2.fq qtrim=rl trimq=10 maq=10 ftm=5 ref=bbduk_adapters.fa
 ```
 <br>
 
 ### Long read basecalling
-
+Basecalled using MinKNOW v. 24.11.8
 <br>
 
 ### Assembly & Polishing
