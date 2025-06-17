@@ -12,6 +12,7 @@ bbduk.sh in1=X_R1_001.fastq.gz in2=X_R2_001.fastq.gz out1=X_R1_050725_2.fq out2=
 
 ### Long read basecalling
 Basecalled using MinKNOW v. 24.11.8
+
 <br>
 
 ### Assembly & Polishing
